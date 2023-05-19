@@ -7,12 +7,19 @@ public class GameManager : MonoBehaviour
     private PlayerController playerScript;
     public Transform startingPoint;
     public float lerpSpeed;
+    public List<GameObject> characters;
+    private int index;
+
     // Start is called before the first frame update
     void Start()
     {
-        playerScript = GameObject.Find("Player").GetComponent<PlayerController>();
+        index = MainManager.Instance.index;
+        Instantiate(characters[index], new Vector3(-5, 0, 0), transform.rotation);
+        Debug.Log("index in game manager: " + index);
+        playerScript = GameObject.Find("Player"+index).GetComponent<PlayerController>();
         playerScript.gameOver = true;
         StartCoroutine(PlayIntro());
+        
     }
 
     // Update is called once per frame

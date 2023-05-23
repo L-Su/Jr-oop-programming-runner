@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class BrownFarmerWoman : Character
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void run()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (doubleSpeed && !gameOver)
+        {
+            doubleSpeed = false;
+            MainManager.Instance.doubleSpeed = doubleSpeed;
+            playerAnim.SetFloat("Speed_Multiplier", 1.5f);
+            score += 1.5f;
+        }
     }
 }

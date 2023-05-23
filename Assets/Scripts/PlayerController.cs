@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource playerAudio;
 
     private int remianJump = 2;
+    private int jumpCapability = 2;
     public int score = 0;
     public bool doubleSpeed = false;
 
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
-            remianJump = 2;
+            remianJump = jumpCapability;
             dirtParticle.Play();
         }
         else if (collision.gameObject.CompareTag("Obstacle"))

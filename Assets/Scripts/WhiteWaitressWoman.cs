@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class WhiteWaitressWoman : Character
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void run()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (doubleSpeed && !gameOver)
+        {
+            doubleSpeed = false;
+            MainManager.Instance.doubleSpeed = doubleSpeed;
+            playerAnim.SetFloat("Speed_Multiplier", 0.8f);
+            score += 0.8f;
+        }
     }
 }
